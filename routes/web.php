@@ -50,8 +50,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/dosen/bimbingan/{id}/progress/{progress_id}', [\App\Http\Controllers\Dosen\BimbinganController::class, 'updateProgress'])->name('dosen.bimbingan.progress.update');
 
     // Route khusus Admin
-    Route::resource('/admin/berita', \App\Http\Controllers\Admin\BeritaController::class)->names('admin.berita');
-    Route::resource('/admin/infolomba', \App\Http\Controllers\Admin\InfoLombaController::class)->names('admin.infolomba');
+    Route::resource('/admin/berita', \App\Http\Controllers\Admin\BeritaController::class)->names('admin.berita')->parameters(['berita' => 'berita']);
+    Route::resource('/admin/infolomba', \App\Http\Controllers\Admin\InfoLombaController::class)->names('admin.infolomba')->parameters(['infolomba' => 'infolomba']);
     Route::resource('/admin/users', \App\Http\Controllers\Admin\UserController::class)->names('admin.users');
 });
 
